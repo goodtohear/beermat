@@ -6,7 +6,26 @@ class LinksListViewController < UITableViewController
     end
     self
   end
+  
   CELL_ID = "CELL"
+  def tableView(tableView, editingStyleForRowAtIndexPath:indexPath)
+    UITableViewCellEditingStyleDelete
+  end
+
+  def tableView(tableView, commitEditingStyle:editing_style, forRowAtIndexPath:indexPath)
+    if editing_style == UITableViewCellEditingStyleDelete
+      note = @night.notes[indexPath.row]
+      @night.notes -= [note]
+      tableView.deleteRowsAtIndexPaths [indexPath], withRowAnimation:UITableViewRowAnimationFade
+    end
+    
+    #if editing_style == UITableViewCellEditingStyleInsert
+    #  path = NSIndexPath.indexPathForRow @night.notes.length + 1, inSection: 0
+    #  tableView.insertRowsAtIndexPaths [path], withRowAnimation: UITableViewRowAnimationBottom
+    #end
+  end
+  
+  
   def tableView tableView, cellForRowAtIndexPath:indexPath
     cell = tableView.dequeueReusableCellWithIdentifier(CELL_ID) || begin
       cell = NoteCell.alloc.init

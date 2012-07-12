@@ -1,9 +1,7 @@
 class Note < NSObject
+  attr_accessor :text
   def initialize
-    
-  end
-  def text
-    "I am a note"
+    @text = "I am a note"
   end
   
   def open

@@ -1,7 +1,7 @@
 class Night < NSObject
   attr_accessor :notes
   def initialize(options={})
-    @notes = 4.times.map do
+    @notes = 2.times.map do
       Note.new
     end
   end

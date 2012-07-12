@@ -8,7 +8,7 @@ class BeerMatView < UIImageView
   end
   
   def build
-    self.backgroundColor = UIColor.grayColor  
+    self.backgroundColor = UIColor.colorWithPatternImage UIImage.imageNamed 'cardboard.png'
     self.layer.cornerRadius = 10.0
     self.layer.shadowRadius = 3.0
     self.layer.shadowColor = UIColor.blackColor.CGColor
