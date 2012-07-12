@@ -4,7 +4,7 @@ class LinkEntryCell < UITableViewCell
     self
   end
   def build
-    @label = UILabel.alloc.initWithFrame [[0,0],[320,44]]
+    @label = UILabel.alloc.initWithFrame [[0,0],[320,90]]
     @label.text = "Add some text, bitch"
     addSubview @label
     
