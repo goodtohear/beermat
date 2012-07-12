@@ -7,6 +7,7 @@ class NightSummaryViewController < UIViewController
     addBeerMatView
     addDateLabel
     addPhotoButton
+
     @photoButton.addTarget(self, action: :'showImagePicker:', forControlEvents:UIControlEventTouchUpInside)
   end
   def addBeerMatView
@@ -14,9 +15,16 @@ class NightSummaryViewController < UIViewController
     self.view.addSubview @mat
 
     @mat.whenTapped do
-      NSLog "Tapped mat"
+      UIView.animateWithDuration 0.5, animations: -> do
+        t = CATransform3DMakeRotation Math::PI, 0.0, 1.0, 0.0
+      end, completion: ->(complete) do
+        delegate.editNight @night if complete
+      end
     end
   end
+  
+
+  
   def addDateLabel
     NSLog "Adding the date label"
     @dateLabel = UILabel.alloc.initWithFrame [[0, 320], [320, 16]]

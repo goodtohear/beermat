@@ -22,5 +22,10 @@ class NightListViewController < UIViewController
     
   end
   
+  def editNight night
+    links_view_controller = LinksListViewController.alloc.initWithNight night
+    navigationController.pushViewController links_view_controller, animated: true
+  end
+  
   
 end

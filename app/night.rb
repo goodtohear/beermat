@@ -1,6 +1,9 @@
 class Night < NSObject
+  attr_accessor :notes
   def initialize(options={})
-    
+    @notes = 4.times.map do
+      Note.new
+    end
   end
   
   def self.all

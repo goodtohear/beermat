@@ -17,4 +17,6 @@ class BeerMatView < UIImageView
     self.layer.masksToBounds = true
   end
   
+
+  
 end
