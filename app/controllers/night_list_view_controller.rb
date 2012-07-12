@@ -4,6 +4,7 @@ class NightListViewController < UIViewController
   end
   
   def viewDidLoad
+    navigationItem.title = "Beer Mat"
     @scroller = UIScrollView.alloc.initWithFrame [[0,0], self.view.frame.size]
     @scroller.pagingEnabled = true
     self.view.addSubview @scroller
@@ -23,7 +24,7 @@ class NightListViewController < UIViewController
   end
   
   def editNight night
-    links_view_controller = LinksListViewController.alloc.initWithNight night
+    links_view_controller = LinkListEditorController.alloc.initWithNight night
     navigationController.pushViewController links_view_controller, animated: true
   end
   

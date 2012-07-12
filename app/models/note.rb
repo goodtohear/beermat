@@ -6,4 +6,8 @@ class Note < NSObject
     "I am a note"
   end
   
+  def open
+    UIApplication.sharedApplication.openURL NSURL.URLWithString( "http://google.com")
+  end
+  
 end
