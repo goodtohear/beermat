@@ -5,8 +5,9 @@ class LinkListEditorController < UIViewController
       view.backgroundColor = UIColor.colorWithPatternImage UIImage.imageNamed 'cardboard.png'
       build
       navigationItem.title = @night.dateText
-      navigationItem.leftBarButtonItem = @table.editButtonItem
-      navigationItem.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem UIBarButtonSystemItemSave, target:self, action:'done' 
+      # navigationItem.leftBarButtonItem = @table.editButtonItem
+      navigationItem.hidesBackButton = true
+      navigationItem.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem UIBarButtonSystemItemDone, target:self, action:'done' 
     end
     self
   end
@@ -55,6 +56,8 @@ class LinkListEditorController < UIViewController
     @table.tableView.insertRowsAtIndexPaths [path], withRowAnimation:UITableViewRowAnimationAutomatic
     @table.tableView.scrollToRowAtIndexPath path, atScrollPosition:UITableViewScrollPositionTop, animated:true
     @input.text = ""
+    
+    Night.save!
   end
   
   def textField textField, shouldChangeCharactersInRange:range, replacementString: string
