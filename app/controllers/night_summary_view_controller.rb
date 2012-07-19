@@ -1,20 +1,27 @@
 class NightSummaryViewController < UIViewController
-  attr_accessor :delegate
+  attr_accessor :delegate, :night
   
   BUTTON_SIZE = [120,120]
-  
-  def loadView
-    self.view = UIView.alloc.initWithFrame [[0,0], [320,400]]
+  #
+  def initWithNight night
+    if init
+      self.night = night
+    end
+    self
   end
+  
+  # def loadView
+  #   self.view = UIView.alloc.initWithFrame [[0,0], [320,400]]
+  # end
   def viewDidLoad
     addBeerMatView
-    addDateLabel
     addPhotoButton
     addListButton
     addEmailButton
     addPeopleButton
-    
   end
+  
+  
   def addBeerMatView
     @mat = BeerMatView.alloc.initWithFrame [[20,20], [280,280]], night: @night
     self.view.addSubview @mat
@@ -31,41 +38,37 @@ class NightSummaryViewController < UIViewController
   
   def addListButton
     @list_button = button_with_image "list", position: [0, 0]
-    @list_button.when(UIControlEventTouchUpInside) do
-      UIView.animateWithDuration 0.5, animations: -> do
-        t = CATransform3DMakeRotation Math::PI, 0.0, 1.0, 0.0
-      end, completion: ->(complete) do
-        delegate.editNight @night if complete
-      end
+
+    @list_button.addTarget(self, action: :'editList', forControlEvents:UIControlEventTouchUpInside)
+  end
+  
+  def editList
+    UIView.animateWithDuration 0.5, animations: -> do
+      # t = CATransform3DMakeRotation Math::PI, 0.0, 1.0, 0.0
+      # view.layer.transform = t
+    end, completion: ->(complete) do
+      delegate.editNight @night if complete
     end
+    
   end
   def addEmailButton
     @email_button = button_with_image 'email', position: [140, 140]
   end
   def addPeopleButton
     @people_button = button_with_image 'people', position: [140, 0]
+    @people_button.when(UIControlEventTouchUpInside) do
+      delegate.editFriends @night
+    end
   end
   def addPhotoButton
     @photo_button = button_with_image 'camera', position: [0,140]
-    @photo_button.when(UIControlEventTouchUpInside) do
-      showImagePicker self
-    end
+    @photo_button.addTarget(self, action: :'showImagePicker', forControlEvents:UIControlEventTouchUpInside)
   end
   
   
-  def addDateLabel
-    NSLog "Adding the date label"
-    @dateLabel = UILabel.alloc.initWithFrame [[0, 320], [320, 16]]
-    @dateLabel.font = UIFont.fontWithName 'HelveticaNeue-Bold', size: 13
-    @dateLabel.text = @night.dateText
-    @dateLabel.backgroundColor = UIColor.clearColor
-    @dateLabel.textColor = UIColor.whiteColor
-    @dateLabel.textAlignment = UITextAlignmentCenter
-    self.view.addSubview @dateLabel
-  end
   
   
-  def showImagePicker sender
+  def showImagePicker
     # Create and show the image picker.
     imagePicker = UIImagePickerController.alloc.init
     imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary 
@@ -96,12 +99,6 @@ class NightSummaryViewController < UIViewController
     
   end
  
-  #
-  def initWithNight night
-    if init
-      @night = night
-    end
-    self
-  end
+
   
 end

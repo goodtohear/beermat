@@ -8,7 +8,7 @@ class NavigationController < UINavigationController
   def popViewControllerAnimated animated
     UIView.animateWithDuration 0.2, animations: -> do
       super false
-      #UIView.setAnimationTransition transition, forView: self.navigationController.view, cache: false
+      UIView.setAnimationTransition UIViewAnimationTransitionFlipFromLeft, forView: self.view, cache: false
     end
   end
 end

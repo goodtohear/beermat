@@ -1,5 +1,5 @@
 class NoteCell < UITableViewCell
-  attr_accessor :icon, :label
+  attr_accessor :icon, :label, :link_label
   def init
     build if super
     self 
@@ -16,6 +16,13 @@ class NoteCell < UITableViewCell
     @label.userInteractionEnabled = false
     @label.font = UIFont.fontWithName "HelveticaNeue", size: 13
     addSubview @label
+    
+    @link_label = UITextView.alloc.initWithFrame [[40, 24], [244,20]]
+    @link_label.backgroundColor = UIColor.clearColor
+    @link_label.editable = false
+    @link_label.userInteractionEnabled = false
+    @link_label.font = UIFont.fontWithName "HelveticaNeue", size: 10
+    addSubview @link_label
     
     
   end

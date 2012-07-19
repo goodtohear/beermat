@@ -12,12 +12,18 @@ class LinkListEditorController < UIViewController
     self
   end
   def done
+    save!
     navigationController.popViewControllerAnimated true
   end
   def build
+    
+    view.autoresizesSubviews = false
+    
     @table = LinksListViewController.alloc.initWithNight @night
+    @table.delegate = self
     @table.view.backgroundColor = UIColor.colorWithPatternImage UIImage.imageNamed 'cardboard.png'
-    @table.view.frame = [[0,0], [320,156+44 ]]
+    @table.view.frame = [[0,0], [320,156]]
+    
     view.addSubview @table.view
     
     text_field_background = UIView.alloc.initWithFrame [[0, 220 - 44 - 20], [320,44]]

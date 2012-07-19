@@ -1,4 +1,5 @@
 class LinksListViewController < UITableViewController
+  attr_accessor :delegate
   def initWithNight(night)
     if init
       @night = night
@@ -17,6 +18,7 @@ class LinksListViewController < UITableViewController
       note = @night.notes[indexPath.row]
       @night.notes -= [note]
       tableView.deleteRowsAtIndexPaths [indexPath], withRowAnimation:UITableViewRowAnimationFade
+      Night.save!
     end
   end
   
@@ -25,8 +27,9 @@ class LinksListViewController < UITableViewController
       cell = NoteCell.alloc.init
     end
     note =  @night.notes[indexPath.row]
-    cell.icon.image = UIImage.imageNamed "link.png"
+    cell.icon.image = UIImage.imageNamed note.link == "" ? "search" : "link"
     cell.label.text = note.text
+    cell.link_label.text = note.link
     cell
   end
   
@@ -39,8 +42,21 @@ class LinksListViewController < UITableViewController
   end 
   
   def tableView tableView, didSelectRowAtIndexPath:indexPath
-    @night.notes[indexPath.row].open
+    # @night.notes[indexPath.row].open
     tableView.deselectRowAtIndexPath indexPath, animated: true
+    @note = @night.notes[indexPath.row] 
+    @link_finder = SVWebViewController.alloc.initWithAddress "http://google.com/search?q=#{@note.text.stringByAddingPercentEscapesUsingEncoding NSUTF8StringEncoding}"  # LinkFinderViewController.alloc.initWithNote 
+    accept = UIBarButtonItem.alloc.initWithTitle "Save link", style: UIBarButtonItemStyleDone,  target:self, action: 'acceptLink'
+    @link_finder.navigationItem.rightBarButtonItem = accept
+    delegate.navigationController.pushViewController @link_finder, animated: true
   end
-    
+  def acceptLink
+    # @note.link = 
+    link = @link_finder.view.request.URL.absoluteString
+    NSLog "accepting link #{link} in note #{@note}"
+    @note.link = link
+    Night.save!
+    delegate.navigationController.popViewControllerAnimated true
+    tableView.reloadData
+  end
 end

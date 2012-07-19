@@ -1,0 +1,48 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<enum value='4' name='SVWebViewControllerAvailableActionsCopyLink'/>
+<enum value='2' name='SVWebViewControllerAvailableActionsMailLink'/>
+<enum value='0' name='SVWebViewControllerAvailableActionsNone'/>
+<enum value='1' name='SVWebViewControllerAvailableActionsOpenInSafari'/>
+<class name='SVModalWebViewController'>
+<method selector='availableActions'>
+<retval type='I' declared_type='SVWebViewControllerAvailableActions'/>
+</method>
+<method selector='barsTintColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='initWithAddress:'>
+<arg type='@' index='0' declared_type='NSString*' name='urlString'/>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='initWithURL:'>
+<arg type='@' index='0' declared_type='NSURL*' name='URL'/>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='setAvailableActions:'>
+<arg type='I' index='0' declared_type='SVWebViewControllerAvailableActions' name='availableActions'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setBarsTintColor:'>
+<arg type='@' index='0' declared_type='UIColor*' name='barsTintColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='SVWebViewController'>
+<method selector='availableActions'>
+<retval type='I' declared_type='SVWebViewControllerAvailableActions'/>
+</method>
+<method selector='initWithAddress:'>
+<arg type='@' index='0' declared_type='NSString*' name='urlString'/>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='initWithURL:'>
+<arg type='@' index='0' declared_type='NSURL*' name='URL'/>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='setAvailableActions:'>
+<arg type='I' index='0' declared_type='SVWebViewControllerAvailableActions' name='availableActions'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+</signatures>
