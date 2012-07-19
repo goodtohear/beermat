@@ -1,81 +1,56 @@
 class NightListViewController < UIViewController
-  # def loadView
-  #   self.view = UIView.alloc.initWithFrame UIScreen.mainScreen.bounds
-  # end
+  attr_reader :selected_night
   
-  def layout
-    return unless @night_summaries
-    x = 0
-    for night_summary_controller in @night_summaries
-      night_summary_controller.view.frame = [[x, 0], [320,400]]
-      x += 320
-    end
-    @scroller.contentSize = [320 * @night_summaries.count, 400]
+  def coverflowView coverflowView, coverAtIndex:index
+    night = Night.all[index]
+    result = NightSummaryView.alloc.initWithFrame [[0,0], [280,280]], night: night
+    result.delegate = self
+    result
   end
-  
-  def add_night_summary_view night
-    night_summary_controller = NightSummaryViewController.alloc.initWithNight night
-    night_summary_controller.delegate = self
-    @night_summaries << night_summary_controller
-    NSLog "Night summaries now #{@night_summaries}"
-    @scroller.addSubview night_summary_controller.view 
+  def coverflowView coverflowView, coverAtIndexWasBroughtToFront: index
+    NSLog "Selected cover at index #{index}"
+    @selected_night =Night.all[index]
+    updateLabel
   end
-  
   def viewDidLoad
-    view.autoresizesSubviews = false
     
     self.view.backgroundColor = UIColor.colorWithPatternImage UIImage.imageNamed 'wood_1.jpg'
     navigationItem.title = "Beer Mat"
 
-    @scroller = UIScrollView.alloc.initWithFrame [[0,0], self.view.frame.size]
-    @scroller.pagingEnabled = true
-    @scroller.delegate = self
-    self.view.addSubview @scroller
+    @cover_flow = TKCoverflowView.alloc.initWithFrame [[0,0],[320,320]]
+    @cover_flow.coverflowDelegate = self
+    @cover_flow.dataSource = self
+    @cover_flow.coverSpacing = 100
+    
+    
+    
+    view.addSubview @cover_flow
 
+    reload
+   
     addDateLabel
     updateLabel
 
-     @night_summaries = []
-    for night in Night.all
-      add_night_summary_view night
-    end
-    layout
-    
     @add_button = button_with_image 'add', position: [100,360]
     @add_button.when(UIControlEventTouchUpInside) do
       night = Night.new
-      Night.all << night
+      Night.all.unshift night
       Night.save!
-      add_night_summary_view night
+      reload
     end
     
     @delete_button = button_with_image 'trash', position: [170,360]
     
     @delete_button.when(UIControlEventTouchUpInside) do
       night = selected_night
-      NSLog "Selected night = #{night}"
-      night_summary = @night_summaries.find{|s| s.night == night }
-      UIView.animateWithDuration 0.3, animations: -> do
-        night_summary.view.alpha = 0
-      end, completion: -> (complete) do
-        if complete
-          NSLog "completed animation, removing view"
-          # night_summary.view.removeFromSuperview
-          NSLog "deleting summary"
-          @night_summaries.delete night_summary
-          NSLog "deleting night #{selected_night}"
-          Night.all.delete selected_night
-          Night.save!
-          layout
-        end
-      end
+      Night.all.delete selected_night
+      Night.save!
+      reload
     end
     
   end
-  
-  def selected_night
-    index =  (@scroller.contentOffset.x / 320).round
-    Night.all[index]
+  def reload
+    @cover_flow.numberOfCovers = Night.all.count
   end
   
   def addDateLabel
@@ -89,16 +64,9 @@ class NightListViewController < UIViewController
   end
   
   def updateLabel
+    return unless @label
     night = selected_night
     @label.text = "#{night.dateText}\n#{night.notesSummaryText}" + (night.friends.count == 0 ? "" : ", #{night.friendsSummaryText}")
-  end
-
-  def scrollViewDidEndDragging scrollView, willDecelerate: willDecelerate
-    updateLabel
-  end
-  
-  def scrollViewDidEndDecelerating scrollView
-    updateLabel
   end
   
   

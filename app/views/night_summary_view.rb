@@ -1,19 +1,19 @@
-class NightSummaryViewController < UIViewController
-  attr_accessor :delegate, :night
+class NightSummaryView < TKCoverflowCoverView
   
   BUTTON_SIZE = [120,120]
-  #
-  def initWithNight night
-    if init
-      self.night = night
+  
+  attr_accessor :delegate # should be a weak reference. don't know how.
+  attr_accessor :night
+  
+  def initWithFrame frame, night: night
+    if initWithFrame frame
+      @night = night
+      build
     end
     self
   end
   
-  # def loadView
-  #   self.view = UIView.alloc.initWithFrame [[0,0], [320,400]]
-  # end
-  def viewDidLoad
+  def build
     addBeerMatView
     addPhotoButton
     addListButton
@@ -21,18 +21,17 @@ class NightSummaryViewController < UIViewController
     addPeopleButton
   end
   
-  
   def addBeerMatView
-    @mat = BeerMatView.alloc.initWithFrame [[20,20], [280,280]], night: @night
-    self.view.addSubview @mat
+    @mat = BeerMatView.alloc.initWithFrame [[0,0], [280,280]], night: @night
+    addSubview @mat
   end
-  
+
   def button_with_image image, position: position
     result = UIButton.buttonWithType UIButtonTypeCustom
     result.alpha = 0.7
-    result.frame = [ position.map{|v| v + 30}    ,BUTTON_SIZE]
+    result.frame = [ position.map{|p| p + 10}, BUTTON_SIZE]
     result.setImage UIImage.imageNamed(image), forState: UIControlStateNormal
-    view.addSubview result
+    addSubview result
     result
   end
   
@@ -51,6 +50,7 @@ class NightSummaryViewController < UIViewController
     end
     
   end
+  
   def addEmailButton
     @email_button = button_with_image 'email', position: [140, 140]
   end
@@ -65,9 +65,7 @@ class NightSummaryViewController < UIViewController
     @photo_button.addTarget(self, action: :'showImagePicker', forControlEvents:UIControlEventTouchUpInside)
   end
   
-  
-  
-  
+  #  should probably go in a controller!
   def showImagePicker
     # Create and show the image picker.
     imagePicker = UIImagePickerController.alloc.init
@@ -98,7 +96,7 @@ class NightSummaryViewController < UIViewController
     end
     
   end
- 
-
+  
+  
   
 end

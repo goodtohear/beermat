@@ -1,4 +1,4 @@
 PODS_ROOT = ${SRCROOT}/Pods
 ALWAYS_SEARCH_USER_PATHS = YES
-OTHER_LDFLAGS = -ObjC -framework MessageUI
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/SVWebViewController"
+OTHER_LDFLAGS = -ObjC -framework MapKit -framework MessageUI -framework QuartzCore
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/SVWebViewController" "${PODS_ROOT}/Headers/TapkuLibrary"

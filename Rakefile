@@ -15,6 +15,7 @@ Motion::Project::App.setup do |app|
 
   app.pods do
     dependency 'SVWebViewController'
+    dependency 'TapkuLibrary'
   end
   
 end

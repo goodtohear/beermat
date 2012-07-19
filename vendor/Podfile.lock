@@ -1,5 +1,7 @@
 PODS:
   - SVWebViewController (0.1)
+  - TapkuLibrary (2.1)
 
 DEPENDENCIES:
   - SVWebViewController
+  - TapkuLibrary

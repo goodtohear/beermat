@@ -18,3 +18,4 @@ install_resource()
   esac
 }
 install_resource 'SVWebViewController/SVWebViewController/SVWebViewController.bundle'
+install_resource 'TapkuLibrary/src/TapkuLibrary.bundle'

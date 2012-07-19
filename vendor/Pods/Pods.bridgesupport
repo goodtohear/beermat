@@ -1,48 +1,1455 @@
 <?xml version='1.0'?>
 <signatures version='1.0'>
-<enum value='4' name='SVWebViewControllerAvailableActionsCopyLink'/>
-<enum value='2' name='SVWebViewControllerAvailableActionsMailLink'/>
-<enum value='0' name='SVWebViewControllerAvailableActionsNone'/>
-<enum value='1' name='SVWebViewControllerAvailableActionsOpenInSafari'/>
+<struct type='{TKDateInformation=&quot;day&quot;i&quot;month&quot;i&quot;year&quot;i&quot;weekday&quot;i&quot;minute&quot;i&quot;hour&quot;i&quot;second&quot;i}' name='TKDateInformation'>
+<field declared_type='int' type='i' name='day'/>
+<field declared_type='int' type='i' name='month'/>
+<field declared_type='int' type='i' name='year'/>
+<field declared_type='int' type='i' name='weekday'/>
+<field declared_type='int' type='i' name='minute'/>
+<field declared_type='int' type='i' name='hour'/>
+<field declared_type='int' type='i' name='second'/>
+</struct>
+<constant declared_type='NSString*' type='@' name='TKWindowRemoteControlEvent'/>
+<constant declared_type='NSString*' type='@' name='TKWindowShakeBegan'/>
+<constant declared_type='NSString*' type='@' name='TKWindowShakeCancelled'/>
+<constant declared_type='NSString*' type='@' name='TKWindowShakeEnded'/>
+<enum name='SVWebViewControllerAvailableActionsCopyLink' value='4'/>
+<enum name='SVWebViewControllerAvailableActionsMailLink' value='2'/>
+<enum name='SVWebViewControllerAvailableActionsNone' value='0'/>
+<enum name='SVWebViewControllerAvailableActionsOpenInSafari' value='1'/>
+<enum name='TKAuthenticationErrorType' value='3'/>
+<enum name='TKConnectionFailureErrorType' value='1'/>
+<enum name='TKEmptyViewImageChatBubble' value='0'/>
+<enum name='TKEmptyViewImageClock' value='1'/>
+<enum name='TKEmptyViewImageCompass' value='2'/>
+<enum name='TKEmptyViewImageEye' value='3'/>
+<enum name='TKEmptyViewImageHeart' value='4'/>
+<enum name='TKEmptyViewImageKey' value='13'/>
+<enum name='TKEmptyViewImageMale' value='14'/>
+<enum name='TKEmptyViewImageMovieClip' value='5'/>
+<enum name='TKEmptyViewImageMusicNote' value='6'/>
+<enum name='TKEmptyViewImagePhotos' value='7'/>
+<enum name='TKEmptyViewImagePictureFrame' value='8'/>
+<enum name='TKEmptyViewImageSearch' value='9'/>
+<enum name='TKEmptyViewImageSign' value='10'/>
+<enum name='TKEmptyViewImageStar' value='11'/>
+<enum name='TKEmptyViewImageStopwatch' value='12'/>
+<enum name='TKEmptyViewImageTelevision' value='15'/>
+<enum name='TKFileManagementError' value='8'/>
+<enum name='TKInternalErrorWhileApplyingCredentialsType' value='7'/>
+<enum name='TKInternalErrorWhileBuildingRequestType' value='6'/>
+<enum name='TKProgressBarViewStyleLong' value='0'/>
+<enum name='TKProgressBarViewStyleShort' value='1'/>
+<enum name='TKRequestCancelledErrorType' value='4'/>
+<enum name='TKRequestTimedOutErrorType' value='2'/>
+<enum name='TKTooMuchRedirectionErrorType' value='9'/>
+<enum name='TKUnableToCreateRequestErrorType' value='5'/>
+<enum name='TKUnhandledExceptionError' value='10'/>
+<enum name='VERTICAL_DIFF' value='50.0'/>
+<function name='CGRectCompose' inline='true'>
+<arg declared_type='CGPoint' type='{CGPoint=ff}' name='origin'/>
+<arg declared_type='CGSize' type='{CGSize=ff}' name='size'/>
+<retval declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}'/>
+</function>
+<function name='CGRectMakeWithPoint' inline='true'>
+<arg declared_type='CGPoint' type='{CGPoint=ff}' name='origin'/>
+<arg declared_type='CGFloat' type='f' name='width'/>
+<arg declared_type='CGFloat' type='f' name='height'/>
+<retval declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}'/>
+</function>
+<function name='CGRectMakeWithSize' inline='true'>
+<arg declared_type='CGFloat' type='f' name='x'/>
+<arg declared_type='CGFloat' type='f' name='y'/>
+<arg declared_type='CGSize' type='{CGSize=ff}' name='size'/>
+<retval declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}'/>
+</function>
+<class name='NSArray'>
+<method selector='firstObject'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='randomObject'>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='NSDate'>
+<method selector='dateByAddingDays:'>
+<arg index='0' declared_type='NSUInteger' type='I' name='days'/>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method class_method='true' selector='dateFromDateInformation:'>
+<arg index='0' declared_type='TKDateInformation' type='{TKDateInformation=iiiiiii}' name='info'/>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method class_method='true' selector='dateFromDateInformation:timeZone:'>
+<arg index='0' declared_type='TKDateInformation' type='{TKDateInformation=iiiiiii}' name='info'/>
+<arg index='1' declared_type='NSTimeZone*' type='@' name='tz'/>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method selector='dateInformation'>
+<retval declared_type='TKDateInformation' type='{TKDateInformation=iiiiiii}'/>
+</method>
+<method class_method='true' selector='dateInformationDescriptionWithInformation:'>
+<arg index='0' declared_type='TKDateInformation' type='{TKDateInformation=iiiiiii}' name='info'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='dateInformationWithTimeZone:'>
+<arg index='0' declared_type='NSTimeZone*' type='@' name='tz'/>
+<retval declared_type='TKDateInformation' type='{TKDateInformation=iiiiiii}'/>
+</method>
+<method class_method='true' selector='dateWithDatePart:andTimePart:'>
+<arg index='0' declared_type='NSDate*' type='@' name='aDate'/>
+<arg index='1' declared_type='NSDate*' type='@' name='aTime'/>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method selector='daysBetweenDate:'>
+<arg index='0' declared_type='NSDate*' type='@' name='date'/>
+<retval declared_type='NSInteger' type='i'/>
+</method>
+<method selector='isSameDay:'>
+<arg index='0' declared_type='NSDate*' type='@' name='anotherDate'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isToday'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method class_method='true' selector='month'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method selector='monthDate'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method selector='monthString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='monthsBetweenDate:'>
+<arg index='0' declared_type='NSDate*' type='@' name='toDate'/>
+<retval declared_type='int' type='i'/>
+</method>
+<method selector='yearString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method class_method='true' selector='yesterday'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+</class>
+<class name='NSObject'>
+<method selector='calendarDayTimelineView:eventDateWasSelected:'>
+<arg index='0' declared_type='TKCalendarDayTimelineView*' type='@' name='calendarDayTimeline'/>
+<arg index='1' declared_type='NSDate*' type='@' name='eventDate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='calendarDayTimelineView:eventViewWasSelected:'>
+<arg index='0' declared_type='TKCalendarDayTimelineView*' type='@' name='calendarDayTimeline'/>
+<arg index='1' declared_type='TKCalendarDayEventView*' type='@' name='eventView'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='calendarDayTimelineView:eventsForDate:'>
+<arg index='0' declared_type='TKCalendarDayTimelineView*' type='@' name='calendarDayTimeline'/>
+<arg index='1' declared_type='NSDate*' type='@' name='eventDate'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='calendarMonthView:didSelectDate:'>
+<arg index='0' declared_type='TKCalendarMonthView*' type='@' name='monthView'/>
+<arg index='1' declared_type='NSDate*' type='@' name='date'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='calendarMonthView:marksFromDate:toDate:'>
+<arg index='0' declared_type='TKCalendarMonthView*' type='@' name='monthView'/>
+<arg index='1' declared_type='NSDate*' type='@' name='startDate'/>
+<arg index='2' declared_type='NSDate*' type='@' name='lastDate'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='calendarMonthView:monthDidChange:animated:'>
+<arg index='0' declared_type='TKCalendarMonthView*' type='@' name='monthView'/>
+<arg index='1' declared_type='NSDate*' type='@' name='month'/>
+<arg index='2' declared_type='BOOL' type='B' name='animated'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='calendarMonthView:monthShouldChange:animated:'>
+<arg index='0' declared_type='TKCalendarMonthView*' type='@' name='monthView'/>
+<arg index='1' declared_type='NSDate*' type='@' name='month'/>
+<arg index='2' declared_type='BOOL' type='B' name='animated'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='calendarMonthView:monthWillChange:animated:'>
+<arg index='0' declared_type='TKCalendarMonthView*' type='@' name='monthView'/>
+<arg index='1' declared_type='NSDate*' type='@' name='month'/>
+<arg index='2' declared_type='BOOL' type='B' name='animated'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='coverflowView:coverAtIndex:'>
+<arg index='0' declared_type='TKCoverflowView*' type='@' name='coverflowView'/>
+<arg index='1' declared_type='int' type='i' name='index'/>
+<retval declared_type='TKCoverflowCoverView*' type='@'/>
+</method>
+<method selector='coverflowView:coverAtIndexWasBroughtToFront:'>
+<arg index='0' declared_type='TKCoverflowView*' type='@' name='coverflowView'/>
+<arg index='1' declared_type='int' type='i' name='index'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='coverflowView:coverAtIndexWasTappedInFront:tapCount:'>
+<arg index='0' declared_type='TKCoverflowView*' type='@' name='coverflowView'/>
+<arg index='1' declared_type='int' type='i' name='index'/>
+<arg index='2' declared_type='NSInteger' type='i' name='tapCount'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='didPlacePinAtCoordinate:'>
+<arg index='0' declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' name='location'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='request:didReceiveTotalBytes:ofExpectedBytes:'>
+<arg index='0' declared_type='TKHTTPRequest*' type='@' name='request'/>
+<arg index='1' declared_type='NSInteger' type='i' name='received'/>
+<arg index='2' declared_type='NSInteger' type='i' name='total'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='tapDetectingView:gotDoubleTapAtPoint:'>
+<arg index='0' declared_type='TapDetectingView*' type='@' name='view'/>
+<arg index='1' declared_type='CGPoint' type='{CGPoint=ff}' name='tapPoint'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='tapDetectingView:gotSingleTapAtPoint:'>
+<arg index='0' declared_type='TapDetectingView*' type='@' name='view'/>
+<arg index='1' declared_type='CGPoint' type='{CGPoint=ff}' name='tapPoint'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='tapDetectingView:gotTwoFingerTapAtPoint:'>
+<arg index='0' declared_type='TapDetectingView*' type='@' name='view'/>
+<arg index='1' declared_type='CGPoint' type='{CGPoint=ff}' name='tapPoint'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='NSString'>
+<method selector='URLEncode'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='escapeHTML'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='hasString:'>
+<arg index='0' declared_type='NSString*' type='@' name='substring'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isEmail'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='md5sum'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='stringByRemovingHTML'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='unescapeHTML'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
 <class name='SVModalWebViewController'>
 <method selector='availableActions'>
-<retval type='I' declared_type='SVWebViewControllerAvailableActions'/>
+<retval declared_type='SVWebViewControllerAvailableActions' type='I'/>
 </method>
 <method selector='barsTintColor'>
-<retval type='@' declared_type='UIColor*'/>
+<retval declared_type='UIColor*' type='@'/>
 </method>
 <method selector='initWithAddress:'>
-<arg type='@' index='0' declared_type='NSString*' name='urlString'/>
-<retval type='@' declared_type='id'/>
+<arg index='0' declared_type='NSString*' type='@' name='urlString'/>
+<retval declared_type='id' type='@'/>
 </method>
 <method selector='initWithURL:'>
-<arg type='@' index='0' declared_type='NSURL*' name='URL'/>
-<retval type='@' declared_type='id'/>
+<arg index='0' declared_type='NSURL*' type='@' name='URL'/>
+<retval declared_type='id' type='@'/>
 </method>
 <method selector='setAvailableActions:'>
-<arg type='I' index='0' declared_type='SVWebViewControllerAvailableActions' name='availableActions'/>
-<retval type='v' declared_type='void'/>
+<arg index='0' declared_type='SVWebViewControllerAvailableActions' type='I' name='availableActions'/>
+<retval declared_type='void' type='v'/>
 </method>
 <method selector='setBarsTintColor:'>
-<arg type='@' index='0' declared_type='UIColor*' name='barsTintColor'/>
-<retval type='v' declared_type='void'/>
+<arg index='0' declared_type='UIColor*' type='@' name='barsTintColor'/>
+<retval declared_type='void' type='v'/>
 </method>
 </class>
 <class name='SVWebViewController'>
 <method selector='availableActions'>
-<retval type='I' declared_type='SVWebViewControllerAvailableActions'/>
+<retval declared_type='SVWebViewControllerAvailableActions' type='I'/>
 </method>
 <method selector='initWithAddress:'>
-<arg type='@' index='0' declared_type='NSString*' name='urlString'/>
-<retval type='@' declared_type='id'/>
+<arg index='0' declared_type='NSString*' type='@' name='urlString'/>
+<retval declared_type='id' type='@'/>
 </method>
 <method selector='initWithURL:'>
-<arg type='@' index='0' declared_type='NSURL*' name='URL'/>
-<retval type='@' declared_type='id'/>
+<arg index='0' declared_type='NSURL*' type='@' name='URL'/>
+<retval declared_type='id' type='@'/>
 </method>
 <method selector='setAvailableActions:'>
-<arg type='I' index='0' declared_type='SVWebViewControllerAvailableActions' name='availableActions'/>
-<retval type='v' declared_type='void'/>
+<arg index='0' declared_type='SVWebViewControllerAvailableActions' type='I' name='availableActions'/>
+<retval declared_type='void' type='v'/>
 </method>
 </class>
+<class name='TKAlertCenter'>
+<method class_method='true' selector='defaultCenter'>
+<retval declared_type='TKAlertCenter*' type='@'/>
+</method>
+<method selector='postAlertWithMessage:'>
+<arg index='0' declared_type='NSString*' type='@' name='message'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='postAlertWithMessage:image:'>
+<arg index='0' declared_type='NSString*' type='@' name='message'/>
+<arg index='1' declared_type='UIImage*' type='@' name='image'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKAppDelegate'>
+<method selector='applicationDidStartup:'>
+<arg index='0' declared_type='UIApplication*' type='@' name='application'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKCalendarDayEventView'>
+<method selector='balloonColorBottom'>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method selector='balloonColorTop'>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method selector='endDate'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method class_method='true' selector='eventViewWithFrame:id:startDate:endDate:title:location:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='frame'/>
+<arg index='1' declared_type='NSNumber*' type='@' name='id'/>
+<arg index='2' declared_type='NSDate*' type='@' name='startDate'/>
+<arg index='3' declared_type='NSDate*' type='@' name='endDate'/>
+<arg index='4' declared_type='NSString*' type='@' name='title'/>
+<arg index='5' declared_type='NSString*' type='@' name='location'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='id'>
+<retval declared_type='NSNumber*' type='@'/>
+</method>
+<method selector='location'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='setBalloonColorBottom:'>
+<arg index='0' declared_type='UIColor*' type='@' name='balloonColorBottom'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setBalloonColorTop:'>
+<arg index='0' declared_type='UIColor*' type='@' name='balloonColorTop'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setEndDate:'>
+<arg index='0' declared_type='NSDate*' type='@' name='endDate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setId:'>
+<arg index='0' declared_type='NSNumber*' type='@' name='id'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setLocation:'>
+<arg index='0' declared_type='NSString*' type='@' name='location'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStartDate:'>
+<arg index='0' declared_type='NSDate*' type='@' name='startDate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTextColor:'>
+<arg index='0' declared_type='UIColor*' type='@' name='textColor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTitle:'>
+<arg index='0' declared_type='NSString*' type='@' name='title'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setupCustomInitialisation'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='startDate'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method selector='textColor'>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method selector='title'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='TKCalendarDayTimelineView'>
+<method selector='currentDay'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='events'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='hourColor'>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method selector='is24hClock'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='reloadDay'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='scrollView'>
+<retval declared_type='UIScrollView*' type='@'/>
+</method>
+<method selector='setCurrentDay:'>
+<arg index='0' declared_type='NSDate*' type='@' name='currentDay'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg index='0' declared_type='id' type='@' name='delegate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setEvents:'>
+<arg index='0' declared_type='NSArray*' type='@' name='events'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setHourColor:'>
+<arg index='0' declared_type='UIColor*' type='@' name='hourColor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setIs24hClock:'>
+<arg index='0' declared_type='BOOL' type='B' name='is24hClock'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setScrollView:'>
+<arg index='0' declared_type='UIScrollView*' type='@' name='scrollView'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTimelineColor:'>
+<arg index='0' declared_type='UIColor*' type='@' name='timelineColor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTimelineView:'>
+<arg index='0' declared_type='TKTimelineView*' type='@' name='timelineView'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setupCustomInitialisation'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='timelineColor'>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method selector='timelineView'>
+<retval declared_type='TKTimelineView*' type='@'/>
+</method>
+</class>
+<class name='TKCalendarDayViewController'>
+<method selector='calendarDayTimelineView'>
+<retval declared_type='TKCalendarDayTimelineView*' type='@'/>
+</method>
+<method selector='setCalendarDayTimelineView:'>
+<arg index='0' declared_type='TKCalendarDayTimelineView*' type='@' name='calendarDayTimelineView'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKCalendarMonthTableViewController'>
+<method selector='setTableView:'>
+<arg index='0' declared_type='UITableView*' type='@' name='tableView'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='tableView'>
+<retval declared_type='UITableView*' type='@'/>
+</method>
+<method selector='updateTableOffset:'>
+<arg index='0' declared_type='BOOL' type='B' name='animated'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKCalendarMonthView'>
+<method selector='dataSource'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='dateSelected'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithSundayAsFirst:'>
+<arg index='0' declared_type='BOOL' type='B' name='sunday'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='monthDate'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method selector='reload'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='selectDate:'>
+<arg index='0' declared_type='NSDate*' type='@' name='date'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDataSource:'>
+<arg index='0' declared_type='id' type='@' name='dataSource'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg index='0' declared_type='id' type='@' name='delegate'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKCalendarMonthViewController'>
+<method selector='init'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithSunday:'>
+<arg index='0' declared_type='BOOL' type='B' name='sundayFirst'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='monthView'>
+<retval declared_type='TKCalendarMonthView*' type='@'/>
+</method>
+<method selector='setMonthView:'>
+<arg index='0' declared_type='TKCalendarMonthView*' type='@' name='monthView'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKCoverflowCoverView'>
+<method selector='baseline'>
+<retval declared_type='float' type='f'/>
+</method>
+<method selector='gradientLayer'>
+<retval declared_type='CAGradientLayer*' type='@'/>
+</method>
+<method selector='image'>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+<method selector='initWithFrame:showReflection:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='frame'/>
+<arg index='1' declared_type='BOOL' type='B' name='reflection'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='setBaseline:'>
+<arg index='0' declared_type='float' type='f' name='baseline'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setGradientLayer:'>
+<arg index='0' declared_type='CAGradientLayer*' type='@' name='gradientLayer'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setImage:'>
+<arg index='0' declared_type='UIImage*' type='@' name='image'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKCoverflowView'>
+<method selector='bringCoverAtIndexToFront:animated:'>
+<arg index='0' declared_type='int' type='i' name='index'/>
+<arg index='1' declared_type='BOOL' type='B' name='animated'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='coverAngle'>
+<retval declared_type='float' type='f'/>
+</method>
+<method selector='coverAtIndex:'>
+<arg index='0' declared_type='int' type='i' name='index'/>
+<retval declared_type='TKCoverflowCoverView*' type='@'/>
+</method>
+<method selector='coverSize'>
+<retval declared_type='CGSize' type='{CGSize=ff}'/>
+</method>
+<method selector='coverSpacing'>
+<retval declared_type='float' type='f'/>
+</method>
+<method selector='coverflowDelegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='currentIndex'>
+<retval declared_type='NSInteger' type='i'/>
+</method>
+<method selector='dataSource'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='dequeueReusableCoverView'>
+<retval declared_type='TKCoverflowCoverView*' type='@'/>
+</method>
+<method selector='indexOfFrontCoverView'>
+<retval declared_type='int' type='i'/>
+</method>
+<method selector='numberOfCovers'>
+<retval declared_type='int' type='i'/>
+</method>
+<method selector='setCoverAngle:'>
+<arg index='0' declared_type='float' type='f' name='coverAngle'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCoverSize:'>
+<arg index='0' declared_type='CGSize' type='{CGSize=ff}' name='coverSize'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCoverSpacing:'>
+<arg index='0' declared_type='float' type='f' name='coverSpacing'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCoverflowDelegate:'>
+<arg index='0' declared_type='id' type='@' name='coverflowDelegate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCurrentIndex:'>
+<arg index='0' declared_type='NSInteger' type='i' name='currentIndex'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDataSource:'>
+<arg index='0' declared_type='id' type='@' name='dataSource'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setNumberOfCovers:'>
+<arg index='0' declared_type='int' type='i' name='numberOfCovers'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSpaceInFront:'>
+<arg index='0' declared_type='float' type='f' name='spaceInFront'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='spaceInFront'>
+<retval declared_type='float' type='f'/>
+</method>
+</class>
+<class name='TKEmptyView'>
+<method selector='imageView'>
+<retval declared_type='UIImageView*' type='@'/>
+</method>
+<method selector='initWithFrame:emptyViewImage:title:subtitle:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='frame'/>
+<arg index='1' declared_type='TKEmptyViewImage' type='i' name='image'/>
+<arg index='2' declared_type='NSString*' type='@' name='titleString'/>
+<arg index='3' declared_type='NSString*' type='@' name='subtitleString'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithFrame:mask:title:subtitle:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='frame'/>
+<arg index='1' declared_type='UIImage*' type='@' name='image'/>
+<arg index='2' declared_type='NSString*' type='@' name='titleString'/>
+<arg index='3' declared_type='NSString*' type='@' name='subtitleString'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='setEmptyImage:'>
+<arg index='0' declared_type='TKEmptyViewImage' type='i' name='image'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setImage:'>
+<arg index='0' declared_type='UIImage*' type='@' name='image'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setImageView:'>
+<arg index='0' declared_type='UIImageView*' type='@' name='imageView'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSubtitleLabel:'>
+<arg index='0' declared_type='UILabel*' type='@' name='subtitleLabel'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTitleLabel:'>
+<arg index='0' declared_type='UILabel*' type='@' name='titleLabel'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='subtitleLabel'>
+<retval declared_type='UILabel*' type='@'/>
+</method>
+<method selector='titleLabel'>
+<retval declared_type='UILabel*' type='@'/>
+</method>
+</class>
+<class name='TKGlobal'>
+<method class_method='true' selector='fullBundlePath:'>
+<arg index='0' declared_type='NSString*' type='@' name='bundlePath'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='TKGradientView'>
+<method selector='colors'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='endPoint'>
+<retval declared_type='CGPoint' type='{CGPoint=ff}'/>
+</method>
+<method selector='locations'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='setColors:'>
+<arg index='0' declared_type='NSArray*' type='@' name='colors'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setEndPoint:'>
+<arg index='0' declared_type='CGPoint' type='{CGPoint=ff}' name='endPoint'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setLocations:'>
+<arg index='0' declared_type='NSArray*' type='@' name='locations'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStartPoint:'>
+<arg index='0' declared_type='CGPoint' type='{CGPoint=ff}' name='startPoint'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setType:'>
+<arg index='0' declared_type='NSString*' type='@' name='type'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='startPoint'>
+<retval declared_type='CGPoint' type='{CGPoint=ff}'/>
+</method>
+<method selector='type'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='TKHTTPRequest'>
+<method selector='URL'>
+<retval declared_type='NSURL*' type='@'/>
+</method>
+<method selector='URLRequest'>
+<retval declared_type='NSURLRequest*' type='@'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='didFailSelector'>
+<retval declared_type='SEL' type=':'/>
+</method>
+<method selector='didFinishSelector'>
+<retval declared_type='SEL' type=':'/>
+</method>
+<method selector='didStartSelector'>
+<retval declared_type='SEL' type=':'/>
+</method>
+<method selector='downloadDestinationPath'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='error'>
+<retval declared_type='NSError*' type='@'/>
+</method>
+<method selector='initWithURL:'>
+<arg index='0' declared_type='NSURL*' type='@' name='URL'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithURLRequest:'>
+<arg index='0' declared_type='NSURLRequest*' type='@' name='request'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='isNetworkInUse'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='progressDelegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='requestWithURL:'>
+<arg index='0' declared_type='NSURL*' type='@' name='URL'/>
+<retval declared_type='TKHTTPRequest*' type='@'/>
+</method>
+<method class_method='true' selector='requestWithURLRequest:'>
+<arg index='0' declared_type='NSURLRequest*' type='@' name='request'/>
+<retval declared_type='TKHTTPRequest*' type='@'/>
+</method>
+<method selector='responseData'>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='responseHeaders'>
+<retval declared_type='NSDictionary*' type='@'/>
+</method>
+<method selector='setCompletionBlock:'>
+<arg function_pointer='true' index='0' declared_type='TKBasicBlock' type='@?' name='aCompletionBlock'>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg index='0' declared_type='id' type='@' name='delegate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDidFailSelector:'>
+<arg index='0' declared_type='SEL' type=':' name='didFailSelector'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDidFinishSelector:'>
+<arg index='0' declared_type='SEL' type=':' name='didFinishSelector'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDidStartSelector:'>
+<arg index='0' declared_type='SEL' type=':' name='didStartSelector'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDownloadDestinationPath:'>
+<arg index='0' declared_type='NSString*' type='@' name='downloadDestinationPath'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setError:'>
+<arg index='0' declared_type='NSError*' type='@' name='error'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setFailedBlock:'>
+<arg function_pointer='true' index='0' declared_type='TKBasicBlock' type='@?' name='aFailedBlock'>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setProgressDelegate:'>
+<arg index='0' declared_type='id' type='@' name='progressDelegate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setResponseHeaders:'>
+<arg index='0' declared_type='NSDictionary*' type='@' name='responseHeaders'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='setShouldUpdateNetworkActivityIndicator:'>
+<arg index='0' declared_type='BOOL' type='B' name='shouldUpdate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setShowNetworkActivity:'>
+<arg index='0' declared_type='BOOL' type='B' name='showNetworkActivity'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStartedBlock:'>
+<arg function_pointer='true' index='0' declared_type='TKBasicBlock' type='@?' name='aStartedBlock'>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStatusCode:'>
+<arg index='0' declared_type='NSInteger' type='i' name='statusCode'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTag:'>
+<arg index='0' declared_type='NSUInteger' type='I' name='tag'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTemporaryFileDownloadPath:'>
+<arg index='0' declared_type='NSString*' type='@' name='temporaryFileDownloadPath'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setURL:'>
+<arg index='0' declared_type='NSURL*' type='@' name='URL'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setURLRequest:'>
+<arg index='0' declared_type='NSURLRequest*' type='@' name='URLRequest'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='showNetworkActivity'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='startAsynchronous'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='statusCode'>
+<retval declared_type='NSInteger' type='i'/>
+</method>
+<method selector='tag'>
+<retval declared_type='NSUInteger' type='I'/>
+</method>
+<method selector='temporaryFileDownloadPath'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='TKImageCache'>
+<method selector='adjustImageRecieved:'>
+<arg index='0' declared_type='UIImage*' type='@' name='image'/>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+<method selector='cacheDirectoryName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='cacheDirectoryPath'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='cachedImageForKey:'>
+<arg index='0' declared_type='NSString*' type='@' name='key'/>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+<method selector='cancelOperations'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='clearCachedImages'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='imageExistsWithKey:'>
+<arg index='0' declared_type='NSString*' type='@' name='key'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='imageForKey:url:queueIfNeeded:'>
+<arg index='0' declared_type='NSString*' type='@' name='key'/>
+<arg index='1' declared_type='NSURL*' type='@' name='url'/>
+<arg index='2' declared_type='BOOL' type='B' name='queueIfNeeded'/>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+<method selector='imageForKey:url:queueIfNeeded:tag:'>
+<arg index='0' declared_type='NSString*' type='@' name='key'/>
+<arg index='1' declared_type='NSURL*' type='@' name='url'/>
+<arg index='2' declared_type='BOOL' type='B' name='queueIfNeeded'/>
+<arg index='3' declared_type='NSUInteger' type='I' name='tag'/>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+<method selector='imagesQueue'>
+<retval declared_type='TKNetworkQueue*' type='@'/>
+</method>
+<method selector='init'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithCacheDirectoryName:'>
+<arg index='0' declared_type='NSString*' type='@' name='cacheDirectoryName'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='notificationName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='removeCachedImagesFromDiskOlderThanTime:'>
+<arg index='0' declared_type='NSTimeInterval' type='d' name='time'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCacheDirectoryName:'>
+<arg index='0' declared_type='NSString*' type='@' name='cacheDirectoryName'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setImagesQueue:'>
+<arg index='0' declared_type='TKNetworkQueue*' type='@' name='imagesQueue'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setNotificationName:'>
+<arg index='0' declared_type='NSString*' type='@' name='notificationName'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setShouldNetworkActivity:'>
+<arg index='0' declared_type='BOOL' type='B' name='shouldNetworkActivity'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTimeTillRefreshCache:'>
+<arg index='0' declared_type='NSTimeInterval' type='d' name='timeTillRefreshCache'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='shouldNetworkActivity'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='timeTillRefreshCache'>
+<retval declared_type='NSTimeInterval' type='d'/>
+</method>
+</class>
+<class name='TKLabelCell'>
+<method selector='label'>
+<retval declared_type='UILabel*' type='@'/>
+</method>
+<method selector='setLabel:'>
+<arg index='0' declared_type='UILabel*' type='@' name='label'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKLabelFieldCell'>
+<method selector='field'>
+<retval declared_type='UILabel*' type='@'/>
+</method>
+<method selector='setField:'>
+<arg index='0' declared_type='UILabel*' type='@' name='field'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKLabelSwitchCell'>
+<method selector='setSwitcher:'>
+<arg index='0' declared_type='UISwitch*' type='@' name='switcher'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='switcher'>
+<retval declared_type='UISwitch*' type='@'/>
+</method>
+</class>
+<class name='TKLabelTextFieldCell'>
+<method selector='field'>
+<retval declared_type='UITextField*' type='@'/>
+</method>
+<method selector='setField:'>
+<arg index='0' declared_type='UITextField*' type='@' name='field'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKLabelTextViewCell'>
+<method selector='setTextView:'>
+<arg index='0' declared_type='UITextView*' type='@' name='textView'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='textView'>
+<retval declared_type='UITextView*' type='@'/>
+</method>
+</class>
+<class name='TKMapPlace'>
+<method selector='color'>
+<retval declared_type='MKPinAnnotationColor' type='I'/>
+</method>
+<method selector='coordinate'>
+<retval declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}'/>
+</method>
+<method selector='setColor:'>
+<arg index='0' declared_type='MKPinAnnotationColor' type='I' name='color'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCoordinate:'>
+<arg index='0' declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' name='coordinate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTitle:'>
+<arg index='0' declared_type='NSString*' type='@' name='title'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='title'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='TKMapView'>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='mapView'>
+<retval declared_type='MKMapView*' type='@'/>
+</method>
+<method selector='pinMode'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='setDelegate:'>
+<arg index='0' declared_type='id' type='@' name='delegate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setMapView:'>
+<arg index='0' declared_type='MKMapView*' type='@' name='mapView'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setPinMode:'>
+<arg index='0' declared_type='BOOL' type='B' name='pinMode'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKNetworkQueue'>
+<method class_method='true' selector='networkQueue'>
+<retval declared_type='TKNetworkQueue*' type='@'/>
+</method>
+<method selector='reset'>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='sharedNetworkQueue'>
+<retval declared_type='TKNetworkQueue*' type='@'/>
+</method>
+</class>
+<class name='TKProgressAlertView'>
+<method selector='hide'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='initWithProgressTitle:'>
+<arg index='0' declared_type='NSString*' type='@' name='title'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='label'>
+<retval declared_type='UILabel*' type='@'/>
+</method>
+<method selector='progressBar'>
+<retval declared_type='TKProgressBarView*' type='@'/>
+</method>
+<method selector='setLabel:'>
+<arg index='0' declared_type='UILabel*' type='@' name='label'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setProgressBar:'>
+<arg index='0' declared_type='TKProgressBarView*' type='@' name='progressBar'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='show'>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKProgressBarView'>
+<method selector='initWithStyle:'>
+<arg index='0' declared_type='TKProgressBarViewStyle' type='i' name='style'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='progress'>
+<retval declared_type='float' type='f'/>
+</method>
+<method selector='setProgress:'>
+<arg index='0' declared_type='float' type='f' name='progress'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setProgress:animated:'>
+<arg index='0' declared_type='float' type='f' name='progress'/>
+<arg index='1' declared_type='BOOL' type='B' name='animated'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKProgressCircleView'>
+<method selector='init'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='isTwirling'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='progress'>
+<retval declared_type='float' type='f'/>
+</method>
+<method selector='setProgress:'>
+<arg index='0' declared_type='float' type='f' name='progress'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setProgress:animated:'>
+<arg index='0' declared_type='float' type='f' name='progress'/>
+<arg index='1' declared_type='BOOL' type='B' name='animated'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTwirlMode:'>
+<arg index='0' declared_type='BOOL' type='B' name='twirlMode'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKShapeView'>
+<method selector='path'>
+<retval declared_type='CGPathRef' type='^{CGPath=}'/>
+</method>
+<method selector='setPath:'>
+<arg index='0' declared_type='CGPathRef' type='^{CGPath=}' name='path'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKSwitchCell'>
+<method selector='setSwitcher:'>
+<arg index='0' declared_type='UISwitch*' type='@' name='switcher'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='switcher'>
+<retval declared_type='UISwitch*' type='@'/>
+</method>
+</class>
+<class name='TKTableViewCell'>
+<method selector='drawContentView:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='r'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TKTableViewController'>
+<method selector='emptyView'>
+<retval declared_type='TKEmptyView*' type='@'/>
+</method>
+<method selector='initWithStyle:'>
+<arg index='0' declared_type='UITableViewStyle' type='i' name='style'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='searchBar'>
+<retval declared_type='UISearchBar*' type='@'/>
+</method>
+<method selector='searchBarDisplayController'>
+<retval declared_type='UISearchDisplayController*' type='@'/>
+</method>
+<method selector='setEmptyView:'>
+<arg index='0' declared_type='TKEmptyView*' type='@' name='emptyView'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSearchBar:'>
+<arg index='0' declared_type='UISearchBar*' type='@' name='searchBar'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSearchBarDisplayController:'>
+<arg index='0' declared_type='UISearchDisplayController*' type='@' name='searchBarDisplayController'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTableView:'>
+<arg index='0' declared_type='UITableView*' type='@' name='tableView'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='tableView'>
+<retval declared_type='UITableView*' type='@'/>
+</method>
+</class>
+<class name='TKTextViewCell'>
+<method selector='setTextView:'>
+<arg index='0' declared_type='UITextView*' type='@' name='textView'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='textView'>
+<retval declared_type='UITextView*' type='@'/>
+</method>
+</class>
+<class name='TKTimelineView'>
+<method selector='hourColor'>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method selector='is24hClock'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='periods'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='setHourColor:'>
+<arg index='0' declared_type='UIColor*' type='@' name='hourColor'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setIs24hClock:'>
+<arg index='0' declared_type='BOOL' type='B' name='is24hClock'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setupCustomInitialisation'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='times'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+</class>
+<class name='TKViewController'>
+<method selector='activeRequestCount'>
+<retval declared_type='NSInteger' type='i'/>
+</method>
+<method selector='addActiveRequest:'>
+<arg index='0' declared_type='TKHTTPRequest*' type='@' name='request'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='cancelActiveRequests'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='loadingView'>
+<retval declared_type='UIView*' type='@'/>
+</method>
+<method selector='removeActiveRequest:'>
+<arg index='0' declared_type='TKHTTPRequest*' type='@' name='request'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setLoadingView:'>
+<arg index='0' declared_type='UIView*' type='@' name='loadingView'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TapDetectingView'>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='setDelegate:'>
+<arg index='0' declared_type='id' type='@' name='delegate'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='UIBarButtonItem'>
+<method class_method='true' selector='barButtonItemWithImage:highlightedImage:target:selector:'>
+<arg index='0' declared_type='UIImage*' type='@' name='image'/>
+<arg index='1' declared_type='UIImage*' type='@' name='highlighedImage'/>
+<arg index='2' declared_type='id' type='@' name='target'/>
+<arg index='3' declared_type='SEL' type=':' name='selector'/>
+<retval declared_type='UIBarButtonItem*' type='@'/>
+</method>
+</class>
+<class name='UIButton'>
+<method class_method='true' selector='buttonWithFrame:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='frame'/>
+<retval declared_type='UIButton*' type='@'/>
+</method>
+<method class_method='true' selector='buttonWithFrame:image:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='frame'/>
+<arg index='1' declared_type='UIImage*' type='@' name='image'/>
+<retval declared_type='UIButton*' type='@'/>
+</method>
+<method class_method='true' selector='buttonWithFrame:image:highlightedImage:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='frame'/>
+<arg index='1' declared_type='UIImage*' type='@' name='image'/>
+<arg index='2' declared_type='UIImage*' type='@' name='highlightedImage'/>
+<retval declared_type='UIButton*' type='@'/>
+</method>
+<method class_method='true' selector='buttonWithFrame:title:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='frame'/>
+<arg index='1' declared_type='NSString*' type='@' name='title'/>
+<retval declared_type='UIButton*' type='@'/>
+</method>
+<method class_method='true' selector='buttonWithFrame:title:backgroundImage:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='frame'/>
+<arg index='1' declared_type='NSString*' type='@' name='title'/>
+<arg index='2' declared_type='UIImage*' type='@' name='backgroundImage'/>
+<retval declared_type='UIButton*' type='@'/>
+</method>
+<method class_method='true' selector='buttonWithFrame:title:backgroundImage:highlightedBackgroundImage:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='frame'/>
+<arg index='1' declared_type='NSString*' type='@' name='title'/>
+<arg index='2' declared_type='UIImage*' type='@' name='backgroundImage'/>
+<arg index='3' declared_type='UIImage*' type='@' name='highlightedBackgroundImage'/>
+<retval declared_type='UIButton*' type='@'/>
+</method>
+</class>
+<class name='UIColor'>
+<method class_method='true' selector='colorWithHex:'>
+<arg index='0' declared_type='unsigned int' type='I' name='hex'/>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method class_method='true' selector='colorWithHex:alpha:'>
+<arg index='0' declared_type='unsigned int' type='I' name='hex'/>
+<arg index='1' declared_type='CGFloat' type='f' name='alpha'/>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method class_method='true' selector='randomColor'>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+</class>
+<class name='UIImage'>
+<method selector='imageCroppedToRect:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='rect'/>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+<method class_method='true' selector='imageNamedTK:'>
+<arg index='0' declared_type='NSString*' type='@' name='path'/>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+<method selector='squareImage'>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+</class>
+<class name='UIImageView'>
+<method class_method='true' selector='imageViewWithFrame:'>
+<arg index='0' declared_type='CGRect' type='{CGRect={CGPoint=ff}{CGSize=ff}}' name='frame'/>
+<retval declared_type='UIImageView*' type='@'/>
+</method>
+<method class_method='true' selector='imageViewWithImageNamed:'>
+<arg index='0' declared_type='NSString*' type='@' name='imageName'/>
+<retval declared_type='UIImageView*' type='@'/>
+</method>
+</class>
+<class name='UIScrollView'>
+<method selector='scrollToTop'>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='UIView'>
+<method selector='addSubviewToBack:'>
+<arg index='0' declared_type='UIView*' type='@' name='view'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='roundOffFrame'>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='UIViewController'>
+<method selector='processJSONDataInBackground:withCallbackSelector:'>
+<arg index='0' declared_type='NSData*' type='@' name='data'/>
+<arg index='1' declared_type='SEL' type=':' name='callback'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='processJSONDataInBackground:withCallbackSelector:backgroundSelector:errorSelector:'>
+<arg index='0' declared_type='NSData*' type='@' name='data'/>
+<arg index='1' declared_type='SEL' type=':' name='callback'/>
+<arg index='2' declared_type='SEL' type=':' name='backgroundProcessor'/>
+<arg index='3' declared_type='SEL' type=':' name='errroSelector'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='processJSONDataInBackground:withCallbackSelector:backgroundSelector:errorSelector:readingOptions:'>
+<arg index='0' declared_type='NSData*' type='@' name='data'/>
+<arg index='1' declared_type='SEL' type=':' name='callback'/>
+<arg index='2' declared_type='SEL' type=':' name='backgroundProcessor'/>
+<arg index='3' declared_type='SEL' type=':' name='errroSelector'/>
+<arg index='4' declared_type='NSJSONReadingOptions' type='I' name='options'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='processJSONDataInBackground:withCallbackSelector:backgroundSelector:readingOptions:'>
+<arg index='0' declared_type='NSData*' type='@' name='data'/>
+<arg index='1' declared_type='SEL' type=':' name='callback'/>
+<arg index='2' declared_type='SEL' type=':' name='backgroundProcessor'/>
+<arg index='3' declared_type='NSJSONReadingOptions' type='I' name='options'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='processJSONDataInBackground:withCallbackSelector:readingOptions:'>
+<arg index='0' declared_type='NSData*' type='@' name='data'/>
+<arg index='1' declared_type='SEL' type=':' name='callback'/>
+<arg index='2' declared_type='NSJSONReadingOptions' type='I' name='options'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<informal_protocol name='TKCalendarDayTimelineViewDelegate'>
+<method type='v16@0:4@8@12' selector='calendarDayTimelineView:eventDateWasSelected:'>
+<arg index='0' declared_type='TKCalendarDayTimelineView*' type='@' name='calendarDayTimeline'/>
+<arg index='1' declared_type='NSDate*' type='@' name='eventDate'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v16@0:4@8@12' selector='calendarDayTimelineView:eventViewWasSelected:'>
+<arg index='0' declared_type='TKCalendarDayTimelineView*' type='@' name='calendarDayTimeline'/>
+<arg index='1' declared_type='TKCalendarDayEventView*' type='@' name='eventView'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='@16@0:4@8@12' selector='calendarDayTimelineView:eventsForDate:'>
+<arg index='0' declared_type='TKCalendarDayTimelineView*' type='@' name='calendarDayTimeline'/>
+<arg index='1' declared_type='NSDate*' type='@' name='eventDate'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+</informal_protocol>
+<informal_protocol name='TKCalendarMonthViewDataSource'>
+<method type='@20@0:4@8@12@16' selector='calendarMonthView:marksFromDate:toDate:'>
+<arg index='0' declared_type='TKCalendarMonthView*' type='@' name='monthView'/>
+<arg index='1' declared_type='NSDate*' type='@' name='startDate'/>
+<arg index='2' declared_type='NSDate*' type='@' name='lastDate'/>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+</informal_protocol>
+<informal_protocol name='TKCalendarMonthViewDelegate'>
+<method type='v16@0:4@8@12' selector='calendarMonthView:didSelectDate:'>
+<arg index='0' declared_type='TKCalendarMonthView*' type='@' name='monthView'/>
+<arg index='1' declared_type='NSDate*' type='@' name='date'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v20@0:4@8@12B16' selector='calendarMonthView:monthDidChange:animated:'>
+<arg index='0' declared_type='TKCalendarMonthView*' type='@' name='monthView'/>
+<arg index='1' declared_type='NSDate*' type='@' name='month'/>
+<arg index='2' declared_type='BOOL' type='B' name='animated'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='B20@0:4@8@12B16' selector='calendarMonthView:monthShouldChange:animated:'>
+<arg index='0' declared_type='TKCalendarMonthView*' type='@' name='monthView'/>
+<arg index='1' declared_type='NSDate*' type='@' name='month'/>
+<arg index='2' declared_type='BOOL' type='B' name='animated'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method type='v20@0:4@8@12B16' selector='calendarMonthView:monthWillChange:animated:'>
+<arg index='0' declared_type='TKCalendarMonthView*' type='@' name='monthView'/>
+<arg index='1' declared_type='NSDate*' type='@' name='month'/>
+<arg index='2' declared_type='BOOL' type='B' name='animated'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+<informal_protocol name='TKCoverflowViewDataSource'>
+<method type='@16@0:4@8i12' selector='coverflowView:coverAtIndex:'>
+<arg index='0' declared_type='TKCoverflowView*' type='@' name='coverflowView'/>
+<arg index='1' declared_type='int' type='i' name='index'/>
+<retval declared_type='TKCoverflowCoverView*' type='@'/>
+</method>
+</informal_protocol>
+<informal_protocol name='TKCoverflowViewDelegate'>
+<method type='v16@0:4@8i12' selector='coverflowView:coverAtIndexWasBroughtToFront:'>
+<arg index='0' declared_type='TKCoverflowView*' type='@' name='coverflowView'/>
+<arg index='1' declared_type='int' type='i' name='index'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v20@0:4@8i12i16' selector='coverflowView:coverAtIndexWasTappedInFront:tapCount:'>
+<arg index='0' declared_type='TKCoverflowView*' type='@' name='coverflowView'/>
+<arg index='1' declared_type='int' type='i' name='index'/>
+<arg index='2' declared_type='NSInteger' type='i' name='tapCount'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+<informal_protocol name='TKHTTPRequestProgressDelegate'>
+<method type='v20@0:4@8i12i16' selector='request:didReceiveTotalBytes:ofExpectedBytes:'>
+<arg index='0' declared_type='TKHTTPRequest*' type='@' name='request'/>
+<arg index='1' declared_type='NSInteger' type='i' name='received'/>
+<arg index='2' declared_type='NSInteger' type='i' name='total'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+<informal_protocol name='TKMapViewDelegate'>
+<method type='v24@0:4{?=dd}8' selector='didPlacePinAtCoordinate:'>
+<arg index='0' declared_type='CLLocationCoordinate2D' type='{_CLLocationCoordinate2D=dd}' name='location'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+<informal_protocol name='TapDetectingViewDelegate'>
+<method type='v20@0:4@8{CGPoint=ff}12' selector='tapDetectingView:gotDoubleTapAtPoint:'>
+<arg index='0' declared_type='TapDetectingView*' type='@' name='view'/>
+<arg index='1' declared_type='CGPoint' type='{CGPoint=ff}' name='tapPoint'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v20@0:4@8{CGPoint=ff}12' selector='tapDetectingView:gotSingleTapAtPoint:'>
+<arg index='0' declared_type='TapDetectingView*' type='@' name='view'/>
+<arg index='1' declared_type='CGPoint' type='{CGPoint=ff}' name='tapPoint'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method type='v20@0:4@8{CGPoint=ff}12' selector='tapDetectingView:gotTwoFingerTapAtPoint:'>
+<arg index='0' declared_type='TapDetectingView*' type='@' name='view'/>
+<arg index='1' declared_type='CGPoint' type='{CGPoint=ff}' name='tapPoint'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
 </signatures>
